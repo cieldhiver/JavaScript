@@ -212,7 +212,7 @@ if (age === 18) console.log('you just became an adult(strict)');
 
 if (age == 18) console.log('you just became an adult(loose)');
 // -> 문자열 '18'이 느슨한 연산자로 인해서 동일하게 인식
-// -> 값을 비교할 때는 엄격한 연산자인 === 사용 추천! 
+// -> 값을 비교할 때는 엄격한 연산자인 === 사용 추천!
 
 const favorite = Number(prompt("What's your favorite number?"));
 console.log(favorite);
@@ -344,9 +344,9 @@ if (day === 'monday') {
 } else {
     console.log('Not a valid day!');
 }
-*/
 
-const age = 15;
+//Conditional(Tenary) Operator
+const age = 20;
 age >= 18 ? console.log('I like to drink wine') : console.log('I like to drink water')
 
 const drink = age >= 18 ? 'wine' : 'water';
@@ -359,5 +359,16 @@ if (age >= 18) {
     drink2 = 'water';
 }
 console.log(drink2);
-
+//조건문이 값을 가지면 사용 가능하다. ${}에 넣어서 사용 가능하다.
 console.log(`I like to drink ${age >= 18 ? 'wine' : 'water'}`);
+
+//coding challenge #4
+
+const bill = 275;
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value 
+${bill + tip}`);
+*/
+
+
+
