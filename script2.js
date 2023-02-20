@@ -8,8 +8,8 @@ if (hasDriversLicense) console.log('I can drive');
 
 //const interface = 'Audio';
 //const private = 534;
-// -> Uncaught SyntaxError: Unexpected strict mode reserved word 
-*/
+// -> Uncaught SyntaxError: Unexpected strict mode reserved word
+
 
 //Functions
 function logger() {
@@ -33,3 +33,20 @@ console.log(appleJuice);
 
 const appleOrangeJuice = fruitProcessor(2, 4);
 console.log(appleOrangeJuice)
+*/
+
+//Function Declarations
+function calcAge1(birthYear) {
+    return 2037 - birthYear;
+}
+const age1 = calcAge1(1991);
+
+//Function Expressions
+const calcAge2 = function (birthYear) {
+    return 2037 - birthYear;
+}
+const age2 = calcAge2(1991);
+
+console.log(age1, age2);
+
+
