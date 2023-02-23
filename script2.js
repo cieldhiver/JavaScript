@@ -95,4 +95,101 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 
 console.log(yearsUntilRetirement(1991, "Jonas"));
 console.log(yearsUntilRetirement(1950, "Mike"));
+
+//Coding Challenge #1
+//Data 1
+const calcAverage = (a, b, c) => (a + b + c) / 3;
+
+let scoreDolphins = calcAverage(44, 23, 71);
+let scoreKoalas = calcAverage(65, 54, 49);
+console.log(scoreDolphins, scoreKoalas);
+
+function checkWinner(avgDolphins, avgKoalas) {
+  if (avgDolphins >= 2 * avgKoalas) {
+    console.log(`Dolphins win(${avgDolphins} vs. ${avgKoalas})`);
+  } else if (avgKoalas >= 2 * avgDolphins) {
+    console.log(`Koalas win(${avgKoalas} vs. ${avgDolphins})`);
+  } else {
+    console.log("No teams wins..");
+  }
+}
+checkWinner(scoreDolphins, scoreKoalas);
+checkWinner(576, 111);
+
+// Data 2
+scoreDolphins = calcAverage(85, 54, 41);
+scoreKoalas = calcAverage(23, 34, 27);
+checkWinner(scoreDolphins, scoreKoalas);
+
+//Arrays
+const friend1 = "Michael";
+const friend2 = "Steven";
+const friend3 = "Peter";
+
+const friends = ["Michael", "Steven", "Peter"];
+console.log(friends);
+
+//const years = new Array(1991, 1984, 1996, 2020);
+console.log(friends[0]);
+
+console.log(friends.length);
+console.log(friends[friends.length - 1]); //Peter : 마지막 요소
+
+friends[2] = "Jay"; //const라도 배열 요소는 변경 가능
+console.log(friends);
+// friends = ["Bob", "Alice"];
+// -> Uncaught TypeError: Assignment to constant variable.
+
+const firstName = "Jonas";
+const jonas = [firstName, "Schmedtmann", 2037 - 1991, "teacher", friends];
+console.log(jonas);
+console.log(jonas.length);
+
+//Exercise
+const calcAge = function (birthYear) {
+  return 2037 - birthYear;
+};
+const years = [1990, 1967, 2002, 2010, 2018];
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+console.log(age1, age2, age3);
+
+const ages = [
+  calcAge(years[0]),
+  calcAge(years[1]),
+  calcAge(years[years.length - 1]),
+];
+console.log(ages);
 */
+//Basic Array Operations (Methods)
+const friends = ["Michael", "Steven", "Peter"];
+
+// 추가 메소드
+const newLength = friends.push("Jay"); //배열의 마지막에 추가하는 메소드
+console.log(friends);
+console.log(newLength);
+
+friends.unshift("John"); //배열의 처음에 추가하는 메소드
+console.log(friends);
+
+//제거 메소드
+const popped = friends.pop(); // 배열의 마지막 요소를 제거
+console.log(popped); //jay -> 제거된 요소가 저장된다
+console.log(friends);
+
+friends.shift(); // 배열의 첫번째 요소를 제거
+console.log(friends);
+
+console.log(friends.indexOf("Steven")); //1 인덱스 번호
+console.log(friends.indexOf("Bob")); //-1
+
+friends.push(23);
+console.log(friends.includes("Steven")); //true
+console.log(friends.includes("Bob")); //false
+console.log(friends.includes(23)); //true
+
+if (friends.includes("Peter")) {
+  console.log("You have a friend called Peter");
+}
