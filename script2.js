@@ -243,7 +243,7 @@ console.log(jonas);
 console.log(
   `${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`
 );
-*/
+
 // Object Methods
 const jonas = {
   firstName: "Jonas",
@@ -252,7 +252,7 @@ const jonas = {
   job: "teacher",
   friends: ["Michael", "Peter", "Steven"],
   hasDriversLicense: true,
-  //개체 속성으로 function값 가능
+  //개체 속성으로 function 가능
   //#1
   // calcAge: function (birthYear) {
   //   return 2037 - birthYear;
@@ -280,10 +280,120 @@ const jonas = {
 
 console.log(jonas.calcAge());
 console.log(jonas.age);
-console.log(jonas.age);
-console.log(jonas.age);
-//console.log(jonas["calcAge"](1991));
+console.log(jonas["calcAge"](1991));
 
 // Challenge
 // "Jonas is a 46-year old teacher, and he has a driver's license"
 console.log(jonas.getSummary());
+
+// Coding Challenge #3
+
+//Loop
+//#1
+console.log("Lifting weights repetition 1 🏋️‍♀️");
+console.log("Lifting weights repetition 2 🏋️‍♀️");
+console.log("Lifting weights repetition 3 🏋️‍♀️");
+console.log("Lifting weights repetition 4 🏋️‍♀️");
+console.log("Lifting weights repetition 5 🏋️‍♀️");
+console.log("Lifting weights repetition 6 🏋️‍♀️");
+console.log("Lifting weights repetition 7 🏋️‍♀️");
+console.log("Lifting weights repetition 8 🏋️‍♀️");
+console.log("Lifting weights repetition 9 🏋️‍♀️");
+console.log("Lifting weights repetition 10 🏋️‍♀️");
+
+//#2
+for (let i = 1; i < 11; i++) {
+  console.log(`Lifting weights repetition ${i} 🏋️‍♀️`);
+}
+
+//Looping Arrays
+const jonas = [
+  "Jonas",
+  "Schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+  true,
+];
+const types = [];
+
+for (let i = 0; i < jonas.length; i++) {
+  console.log(jonas[i], typeof jonas[i]);
+
+  //types[i] = typeof jonas[i];
+  types.push(typeof jonas[i]); //빈 배열에 push한다.
+}
+
+console.log(types);
+
+//****
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2037 - years[i]);
+}
+console.log(ages);
+//****
+
+//Continue : 조건 해당 코드는 실행하지 않고 다음 코드로 넘어가서 끝까지 실행
+console.log("--- ONLY STRINGS ---");
+for (let i = 0; i < jonas.length; i++) {
+  if (typeof jonas[i] !== "string") continue;
+
+  console.log(jonas[i], typeof jonas[i]);
+}
+
+//Break : 조건 실행시 종료
+console.log("--- BREAK WITH NUMBER ---");
+for (let i = 0; i < jonas.length; i++) {
+  if (typeof jonas[i] === "number") break;
+
+  console.log(jonas[i], typeof jonas[i]);
+}
+
+// Looping Backwards
+const jonas = [
+  "Jonas",
+  "Schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+  true,
+];
+
+// 0, 1, ..., 4
+// 4, 3, ..., 0
+
+for (let i = jonas.length - 1; i >= 0; i--) {
+  console.log(i, jonas[i]);
+}
+
+//Loops in Loops
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`-------- Starting exercise${exercise}`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${exercise}: Lifting weight repetition ${rep} 🏋️‍♀️`);
+  }
+}
+*/
+// The while Loop : loop 몇 번 반복될지 모르는 상황에서 사용
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+}
+
+let rep = 1;
+while (rep <= 10) {
+  console.log(`WHILE : Lifting weights repetition ${rep} 🏋️‍♀️`);
+  rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log("Loop end!");
+}
