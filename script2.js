@@ -307,9 +307,8 @@ const john = {
   }
 };
 
-mark.calcBMI();
+mark.calcBMI();//메소드를 호출하지 않으면 mark.bmi를 사용할 수 없다.(스스로 호출x)
 john.calcBMI();
-
 console.log(mark.bmi, john.bmi);
 
 // "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
@@ -428,7 +427,7 @@ while (dice !== 6) {
   dice = Math.trunc(Math.random() * 6) + 1;
   if (dice === 6) console.log("Loop end!");
 }
-*/
+
 // Coding Challenge #4
 const calcTip = function (bill) {
   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
@@ -440,7 +439,7 @@ const totals = [];
 for (let i = 0; i < bills.length; i++) {
   const tip = calcTip(bills[i]);
   tips.push(tip);
-  totals.push(tip + bills[i]);
+  totals.push(tips[i] + bills[i]);
 }
 console.log(bills, tips, totals);
 
@@ -455,5 +454,20 @@ const calcAverage = function (arr) {
 console.log(calcAverage([2, 3, 7]));
 console.log(calcAverage(totals));
 console.log(calcAverage(tips));
+*/
+// Coding Challenge #1
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
 
-test2
+const printForecast = function (arr) {
+  let str = "";
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]}ºC in ${i + 1} days ...`;
+  }
+  console.log(str);
+};
+printForecast(data1);
+
+// sum = 0;
+// 2+3=5+4=9
+// [2,3,4]
