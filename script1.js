@@ -1,4 +1,6 @@
 /*
+<JavaScript Fundamentals 1>
+
 let js = 'amazing';
 console.log(20 + 30 - 15);
 
@@ -369,6 +371,3 @@ const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 console.log(`The bill was ${bill}, the tip was ${tip}, and the total value 
 ${bill + tip}`);
 */
-
-
-
