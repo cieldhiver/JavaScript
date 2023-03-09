@@ -1,5 +1,7 @@
 'use strict';
 //<JavaScript Works Behind the Scenes>
+
+///////////////////////////////////////
 // Scoping in Practice
 /*
 function calcAge(birthYear) {
@@ -39,6 +41,8 @@ calcAge(1991);
 // console.log(age);
 // printAge();
 
+
+///////////////////////////////////////
 // Hoisting and TDZ in Practice
 
 //변수
@@ -75,7 +79,7 @@ function deleteShoppingCart() {
   console.log('All products deleted!');
 }
 
-//결론 : let, const 사용(var 사용x) + 선언 후 함수 작성
+//결론 : let, const 사용 (var 사용x) + 선언 후 함수 작성
 
 var x = 1;
 let y = 2;
@@ -85,7 +89,9 @@ console.log(x === window.x); //true
 console.log(y === window.y); //false
 console.log(z === window.z); //false
 // var로 선언한 변수는 window 객체에 속성값을 가진다.
-*/
+
+
+///////////////////////////////////////
 // This Keyword in Practice
 console.log(this);
 
@@ -113,8 +119,121 @@ jonas.calcAge();
 const matilda = {
   year: 2017,
 };
-matilda.calcAge = jonas.calcAge;
+matilda.calcAge = jonas.calcAge; //메소드 빌리기(복사)
 matilda.calcAge();
 
 const f = jonas.calcAge;
 f(); //undefined
+
+
+///////////////////////////////////////
+// Regular Functions vs Arrow Functions
+
+//var firstName = 'Matilda';
+const jonas = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+
+    // Solution 1
+    // const self = this;
+    // const isMillenial = function () {
+    //   //console.log(this); //undefined
+    //   console.log(self);
+    //   //console.log(this.year >= 1981 && this.year <= 1996);
+    //   console.log(self.year >= 1981 && self.year <= 1996);
+    // };
+    // isMillenial(); //일반 함수 호출에서는 this 정의x, this 선언해준다
+
+    // Solution 2
+    // 화살표 함수에서는 this를 상속받는다.
+    const isMillenial = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
+  },
+  greet: () => {
+    console.log(this); //window 객체
+    console.log(`Hey ${this.firstName}`); //Hey undefined
+  },
+};
+jonas.greet();
+jonas.calcAge();
+
+//arguments keyword
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 12); //Arguments(4) [2, 5, 8, 12, callee: (...), Symbol(Symbol.iterator): ƒ]
+
+// 화살표 함수에서는 argument 키워드 존재x
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+addArrow(2, 5, 10); //Uncaught ReferenceError: arguments is not defined
+
+
+///////////////////////////////////////
+// Objects vs Primitives
+// Primitives
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age); //31
+console.log(oldAge); //30
+
+// Objects
+const me = {
+  name: 'Jonas',
+  age: 30,
+};
+
+const friend = me;
+friend.age = 27;
+console.log('Friend:', friend); //27
+console.log('Me:', me); //27
+*/
+
+///////////////////////////////////////
+// Primitives vs Objects in Practice
+
+// Primitive types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+// Reference types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage:', jessica);
+console.log('After marriage: ', marriedJessica);
+// marriedJessica = {};
+
+// Copying objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davis';
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('Before marriage:', jessica2);
+console.log('After marriage: ', jessicaCopy);
