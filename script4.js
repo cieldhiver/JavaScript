@@ -47,6 +47,39 @@ const restaurant = {
 };
 
 ///////////////////////////////////////
+// Short Circuiting (&& and ||)
+
+console.log('---- OR ----'); // 첫번째 true 값을 반환, 모두 false 경우 마지막 값 반환
+// Use ANY data type, return ANY data type, short-circuiting
+console.log(3 || 'Jonas'); //3
+console.log('' || 'Jonas'); //Jonas
+console.log(true || 0); //true
+console.log(undefined || null); //null
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); //Hello
+
+//restaurant.numGuests = 23; 기본값 설정
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 20;
+console.log(guests2); //20
+
+console.log('---- AND ----'); // <-> OR (왼쪽부터 시작해서 첫 번째 falsy값 반환, 모두 true 경우 마지막 값 반환)
+console.log(0 && 'Jonas'); //0
+console.log(7 && 'Jonas'); //Jonas
+
+console.log('Hello' && 23 && null && 'jonas'); //null
+
+// Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+/*
+///////////////////////////////////////
 // Rest Pattern and Parameters
 
 // 1) Destructuring
@@ -86,7 +119,7 @@ add(...x);
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant.orderPizza('mushrooms');
 
-/*
+
 ///////////////////////////////////////
 // The Spread Operator (...)
 
