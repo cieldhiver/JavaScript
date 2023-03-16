@@ -47,6 +47,17 @@ const restaurant = {
 };
 
 ///////////////////////////////////////
+// The Nullish Coalescing Operator
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
+/*
+///////////////////////////////////////
 // Short Circuiting (&& and ||)
 
 console.log('---- OR ----'); // 첫번째 true 값을 반환, 모두 false 경우 마지막 값 반환
@@ -58,9 +69,9 @@ console.log(undefined || null); //null
 
 console.log(undefined || 0 || '' || 'Hello' || 23 || null); //Hello
 
-//restaurant.numGuests = 23; 기본값 설정
+restaurant.numGuests = 23; //기본값 설정
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
+console.log(guests1); //10
 
 const guests2 = restaurant.numGuests || 20;
 console.log(guests2); //20
@@ -78,7 +89,7 @@ if (restaurant.orderPizza) {
 
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
-/*
+
 ///////////////////////////////////////
 // Rest Pattern and Parameters
 
